@@ -10,6 +10,7 @@ Os termos dado e informação podem ser tratados como sinônimos ou como termos 
 3. Saída (exibe a informação)
 ![alt text](image.png)
 
+
 O  conjunto  dessas  etapas, o  passo  a  passo  para  calcular  a  média  final  é  denominado  em  Informática  (em processamento de dados)  de  um  **algoritmo**.
 
 As mencionadas etapas são:
