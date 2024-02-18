@@ -9,3 +9,5 @@ Os termos dado e informação podem ser tratados como sinônimos ou como termos 
 2. Processamento (processa os dados para eles virarem informação)
 3. Saída (exibe a informação)
 ![alt text](image.png)
+
+teste de alteração mobile
