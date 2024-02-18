@@ -9,3 +9,59 @@ Os termos dado e informação podem ser tratados como sinônimos ou como termos 
 2. Processamento (processa os dados para eles virarem informação)
 3. Saída (exibe a informação)
 ![alt text](image.png)
+
+O  conjunto  dessas  etapas, o  passo  a  passo  para  calcular  a  média  final  é  denominado  em  Informática  (em processamento de dados)  de  um  **algoritmo**.
+
+As mencionadas etapas são:
+
+- Buscar uma nota (entrada do dado),
+- Somar com o valor existente - se for a 1ª nota, o valor existente é igual a zero (processamento);
+- Buscar outra nota (enquanto houver notas), somar com novo valor existente;
+- Acrescentar um ao contador de alunos (para se obter o divisor final-total de alunos) e
+- Assim, o resultado (saída) vai sendo sucessivamente aumentado com as novas somas;
+- .Ao obter e somar a última nota, efetua-se a divisão.
+
+A execução desse conjunto de etapas (algoritmo) caracteriza a atividade de processamento.
+
+Então, o processamento não é uma única atividade, mas sim um conjunto de atividades ou operações, que são  ordenadas  e  sistematicamente  realizadas,  segundo  uma  determinada  sequência  logicamente  definida  pelo usuário  (algoritmo).  Se  for  alterada  a  sequência  de  realização  das  ações  (mesmo  que  usando  os  mesmos  dados), altera-se naturalmente o resultado obtido. Este é um ponto importante, pois não se altera elementos de hardware e sim de software para se obter novos resultados;
+
+- Exemplo
+    Um outro exemplo de manipulação manual de informações no passado, que se tornou um processamento
+    
+    automático de dados com o surgimento dos computadores consiste na atualização do valor de saldo de uma conta
+    
+    bancária. Para auxiliar a apresentação da situação, os elementos do processo foram incluidos em uma caixa separada.
+    
+    Este procedimento, corriqueiro em sistemas bancários, exprime de forma clara as etapas de um
+    
+    processamento de dados (figura 1.1):
+    
+    - Os dados da Conta Corrente -c/c (número da conta, valor atual do saldo) e o valor do cheque são DADOS.
+    - A coleta dos dados é a etapa de ENTRADA.
+    - Etapas do procedimento constituem o algoritmo para atualização do saldo, cuja execução caracteriza
+    
+    a etapa de PROCESSAMENTO.
+    
+    - O novo saldo é a INFORMAÇÃO, apresentada na SAÍDA.
+
+# Arquitetura x Implementação
+
+Quando se estuda ou analisa o processo de criação (e fabricação e operação) de um determinado produto, seja ele qual for, deve-se tratar o assunto sob dois pontos de vista diferentes; cada um deles sendo utilizado em momentos diferentes da criação ou fabricação do referido produto: a arquitetura do produto e sua organização (ou implementação  ou  engenharia). Em geral, há profissionais especializados em cada caso, como os arquitetos e  engenheiros, que  até  podem ter  formação acadêmica  distinta  como  no  caso  do  projeto  (arquiteto)  e construção (engenheiro) de um edifício.
+
+Assim é que, por exemplo, a decisão de construir um edifício envolverá, então, duas áreas de conhecimento distintas,  embora  interligadas:  a  arquitetura  e  a  engenharia.
+
+A arquitetura de um edifício pode servir a diferentes outros edifícios de um  mesmo  condomínio  ou  até  outros  edifícios  sendo  construídos  ao  longo  dos  anos.  Um  exemplo  típico  de arquitetura  de  uma  “família”  de  produtos  é  o  da  arquitetura  x86  da  Intel,  que  serviu  para  a  fabricação  de processadores desde o Intel 8086/8088 até alguns modelos do Pentium 4.
+
+# Arquitetura x Implementação
+
+Quando se estuda ou analisa o processo de criação (e fabricação e operação) de um determinado produto, seja ele qual for, deve-se tratar o assunto sob dois pontos de vista diferentes; cada um deles sendo utilizado em momentos diferentes da criação ou fabricação do referido produto: a arquitetura do produto e sua organização (ou implementação  ou  engenharia). Em geral, há profissionais especializados em cada caso, como os arquitetos e  engenheiros, que  até  podem ter  formação acadêmica  distinta  como  no  caso  do  projeto  (arquiteto)  e construção (engenheiro) de um edifício.
+
+Assim é que, por exemplo, a decisão de construir um edifício envolverá, então, duas áreas de conhecimento distintas,  embora  interligadas:  a  arquitetura  e  a  engenharia.
+
+A arquitetura de um edifício pode servir a diferentes outros edifícios de um  mesmo  condomínio  ou  até  outros  edifícios  sendo  construídos  ao  longo  dos  anos.  Um  exemplo  típico  de arquitetura  de  uma  “família”  de  produtos  é  o  da  arquitetura  x86  da  Intel,  que  serviu  para  a  fabricação  de processadores desde o Intel 8086/8088 até alguns modelos do Pentium 4.
+
+# Hardware x Software
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/7cf1b169-9d1b-4b1b-ad27-4f0d1a1609a1/04f2697e-b2b0-44eb-80f7-e1a687b808ed/Untitled.png)
+
+![alt text](image-1.png)
