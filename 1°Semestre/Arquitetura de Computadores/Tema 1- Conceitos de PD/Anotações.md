@@ -45,13 +45,6 @@ Então, o processamento não é uma única atividade, mas sim um conjunto de ati
     
     - O novo saldo é a INFORMAÇÃO, apresentada na SAÍDA.
 
-# Arquitetura x Implementação
-
-Quando se estuda ou analisa o processo de criação (e fabricação e operação) de um determinado produto, seja ele qual for, deve-se tratar o assunto sob dois pontos de vista diferentes; cada um deles sendo utilizado em momentos diferentes da criação ou fabricação do referido produto: a arquitetura do produto e sua organização (ou implementação  ou  engenharia). Em geral, há profissionais especializados em cada caso, como os arquitetos e  engenheiros, que  até  podem ter  formação acadêmica  distinta  como  no  caso  do  projeto  (arquiteto)  e construção (engenheiro) de um edifício.
-
-Assim é que, por exemplo, a decisão de construir um edifício envolverá, então, duas áreas de conhecimento distintas,  embora  interligadas:  a  arquitetura  e  a  engenharia.
-
-A arquitetura de um edifício pode servir a diferentes outros edifícios de um  mesmo  condomínio  ou  até  outros  edifícios  sendo  construídos  ao  longo  dos  anos.  Um  exemplo  típico  de arquitetura  de  uma  “família”  de  produtos  é  o  da  arquitetura  x86  da  Intel,  que  serviu  para  a  fabricação  de processadores desde o Intel 8086/8088 até alguns modelos do Pentium 4.
 
 # Arquitetura x Implementação
 
@@ -62,7 +55,5 @@ Assim é que, por exemplo, a decisão de construir um edifício envolverá, ent�
 A arquitetura de um edifício pode servir a diferentes outros edifícios de um  mesmo  condomínio  ou  até  outros  edifícios  sendo  construídos  ao  longo  dos  anos.  Um  exemplo  típico  de arquitetura  de  uma  “família”  de  produtos  é  o  da  arquitetura  x86  da  Intel,  que  serviu  para  a  fabricação  de processadores desde o Intel 8086/8088 até alguns modelos do Pentium 4.
 
 # Hardware x Software
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/7cf1b169-9d1b-4b1b-ad27-4f0d1a1609a1/04f2697e-b2b0-44eb-80f7-e1a687b808ed/Untitled.png)
 
 ![alt text](image-1.png)
