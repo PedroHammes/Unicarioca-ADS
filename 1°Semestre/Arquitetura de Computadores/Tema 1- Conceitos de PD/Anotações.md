@@ -57,3 +57,15 @@ A arquitetura de um edifício pode servir a diferentes outros edifícios de um  
 # Hardware x Software
 
 ![alt text](image-1.png)
+
+
+# Representação de Informação nos Computadores – O Bit e o Byte
+Conforme já mencionamos anteriormente, o computador é constituído de um conjunto de componentes (hardware), capaz de realizar uma série de tarefas, de acordo com a sequência de ordens dadas aos componentes pelo software. Vimos  também  que  os  computadores  são  máquinas  que  manipulam  dados  para  produzir 
+produtos acabados, que chamamos de informações.
+
+Para poder funcionar adequadamente, **um computador precisa ter uma forma qualquer para representar os dados que irá processar e as instruções dadas aos seus componentes** (para realizar o processamento), 
+como, {c:yellow}por exemplo{/c}: 
+✓ Captar um valor no dispositivo de entrada, 
+✓ Somar um valor com outro, 
+✓ Mover um valor de um local para outro, 
+✓ Colocar um valor na porta de saída etc.
