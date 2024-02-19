@@ -63,9 +63,45 @@ A arquitetura de um edifício pode servir a diferentes outros edifícios de um  
 Conforme já mencionamos anteriormente, o computador é constituído de um conjunto de componentes (hardware), capaz de realizar uma série de tarefas, de acordo com a sequência de ordens dadas aos componentes pelo software. Vimos  também  que  os  computadores  são  máquinas  que  manipulam  dados  para  produzir 
 produtos acabados, que chamamos de informações.
 
-Para poder funcionar adequadamente, **um computador precisa ter uma forma qualquer para representar os dados que irá processar e as instruções dadas aos seus componentes** (para realizar o processamento), 
-como, {c:yellow}por exemplo{/c}: 
-✓ Captar um valor no dispositivo de entrada, 
-✓ Somar um valor com outro, 
-✓ Mover um valor de um local para outro, 
-✓ Colocar um valor na porta de saída etc.
+Para poder funcionar adequadamente, **um computador precisa ter uma forma qualquer para representar os dados que irá processar e as instruções dadas aos seus componentes** (para realizar o processamento), por exemplo: 
+* Captar um valor no dispositivo de entrada, 
+* Somar um valor com outro, 
+* Mover um valor de um local para outro, 
+* Colocar um valor na porta de saída etc.
+
+Como  fazer  essas  máquinas  entenderem  o  caractere  “a”  assim  como  o  caractere  “7”?.  Ou  ainda,  como  fazer  eles  “desenharem” uma reta ou  curva  ou  outro  elemento  gráfico  qualquer? Foi  preciso  criar  uma  linguagem  própria  capaz  de  ser entendida pela máquina, com suas características definidas de forma semelhante às linguagens dos humanos (com símbolos, regras  de  sintaxe,  etc).  Chama-se  a  isso  de  linguagem  de  máquina.
+
+Sendo  um  dispositivo  eletrônico,  esta linguagem deve ser constituída de símbolos, como sinais elétricos, os quais logicamente representam os valores `0` e `1`.
+
+## Sinal
+> _Sinal  é  o  elemento  físico  com  propriedades  adequadas  para  se  propagar  em  um  determinado  meio_,  representando  os 
+símbolos correspondentes de uma informação. 
+
+## BIT 
+> _Bit é a contração das palavras inglesas `Bi nary Digi T`, juntando-se as letras iniciais BI e a última, T_.
+A tradução de binary digit  é  **dígito binário ou algarismo binário**.
+Ou seja, os dois algarismos do sistema  binário de  numeração (ver Apêndice  A), os algarismos `0` e ``1``, são conhecidos e usados em Computação como **bit ``0`` e bit ``1``** em vez de expressar dígito 0 ou dígito 1. 
+
+Por exemplo, menciona-se que uma determinada célula de memória armazena o valor binário: ``0 1 1 1 0 1 0 0`` 
+
+## BYTE 
+> _A primeira definição formal atribuída a um grupo ordenado de bits_, para efeito de manipulação interna mais eficiente, foi instituída pela IBM e é, atualmente, utilizada por praticamente todos os fabricantes de computadores
+
+**Trata-se do byte, definido como um grupo ordenado de 8 bits, tratados de forma individual, como unidade de armazenamento e transferência.**
+O  byte  foi  definido  para  servir  de  elemento  de  referência  para  a  construção  e  funcionamento  dos  dispositivos  de armazenamento e também como referência para os processos de transferência de dados entre periféricos e UCP/MP.
+
+# Uso de unidades de simplificação de valores: K – M – G - T
+Lembrando do exemplo sobre a utilização do termo byte em citações sobre a capacidade de memória de computadores, observou-se que, **em vez de expressar a grandeza em unidades de bytes, por exemplo (1.048.576), usou-se uma simplificação:  1  MByte**.
+**Nesse  caso,  o  M  está  representando  um  valor  equivalente  a  um  pouco  mais  de  milhão  de  unidades (1.048.576) de  bytes.**
+Caso  se  use  o  sistema  decimal,  então,  1M  =  1.000.000.
+É  mais  prático  e  usa  menos  espaço  em papel  ou qualquer outro meio de visualização.
+
+A  inclusão  do  caractere  ``M``,  ou  outros  como  ``K,  G,  T,  P``,  etc  tem  por  propósito  **reduzir  a  quantidade  de  algarismos representativos  de  um  número**.
+
+No  nosso  sistema  métrico  decimal,  usa-se  o  K  para  representar  mil  vezes  (1000),  conforme mostrado no quadro abaixo.
+Não é comum expressar o peso em gramas (a não ser que seja um valor pequeno); _Usa-se 70kg em vez de 70.000gr ou 70Km em vez de 70,000mts._
+
+> ``1K = 2^10 = 1024`` 
+> ``1M = 2^20 = 1024K`` 
+> ``1G = 2^30 = 1024M`` 
+> ``1T = 2^40 = 1024 G``
