@@ -1,20 +1,19 @@
 # Atividade Supervisionada - JavaScript
 - Atividade Supervisionada
 - Professor: Sérgio Assunção Monteiro
+- As resoluções da atividade devem estar comentadas
+- A atividade deve conter:
+    * Nome da disciplina
+    * Código da Turma
+    * Nome e matrícula do aluno
+- A data de entrega é até 27/maio/2024.
+- O arquivo deve estar no github
+- O link do GitHub da atividade deve ser entregue individualmente no local apropriado do AVA
 
 ## Dados do aluno:
 - Nome da disciplina: Programação Javascript
 - Código da Turma: 132N
 - Nome e matrícula do aluno: João Pedro Hammes Pacheco - 2024100014
-
-1. As resoluções da atividade devem estar comentadas
-2. A atividade deve conter:
-    * Nome da disciplina
-    * Código da Turma
-    * Nome e matrícula do aluno
-3. A data de entrega é até 27/maio/2024.
-4. O arquivo deve estar no github
-5. O link do GitHub da atividade deve ser entregue individualmente no local apropriado do AVA
 
 ## Descrição do Trabalho
 ○ objetivo deste exercício é praticar o uso de funções, iterações e condicionais em JavaScript para
