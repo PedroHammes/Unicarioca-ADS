@@ -1,11 +1,11 @@
-# Atividade Supervisionada--JavaScript
-### Atividade Supervisionada
-### Professor: Sérgio Assunção Monteiro
+# Atividade Supervisionada - JavaScript
+- Atividade Supervisionada
+- Professor: Sérgio Assunção Monteiro
 
 ## Dados do aluno:
-### Nome da disciplina: Programação Javascript
-### Código da Turma: 132N
-### Nome e matrícula do aluno: João Pedro Hammes Pacheco - 2024100014
+- Nome da disciplina: Programação Javascript
+- Código da Turma: 132N
+- Nome e matrícula do aluno: João Pedro Hammes Pacheco - 2024100014
 
 1. As resoluções da atividade devem estar comentadas
 2. A atividade deve conter:
