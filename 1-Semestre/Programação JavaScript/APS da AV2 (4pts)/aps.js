@@ -36,5 +36,5 @@ function findLargestPrimes(num) {
                        `\n${largestPrimes}`)
 }
 
-//console.log(isPrime(5))
+console.log(isPrime(9))
 findLargestPrimes(9)
