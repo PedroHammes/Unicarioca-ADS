@@ -3,9 +3,6 @@ function isPrime(num) {
     let rest = 0
     if (num < 2) {
         return console.log(`O número ${num} não é primo porque é menor ou igual a 2.`)
-    // } 
-    // else if (num % 2 == 0) {
-    //     return console.log(`O número ${num} não é primo porque é divisível por 2.`)
     } else {
         do {
             cont = cont - 1
