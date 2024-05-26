@@ -1,5 +1,4 @@
 # Atividade Supervisionada - JavaScript
-- Atividade Supervisionada
 - Professor: Sérgio Assunção Monteiro
 - As resoluções da atividade devem estar comentadas
 - A atividade deve conter:
@@ -16,15 +15,10 @@
 - Nome e matrícula do aluno: João Pedro Hammes Pacheco - 2024100014
 
 ## Descrição do Trabalho
-○ objetivo deste exercício é praticar o uso de funções, iterações e condicionais em JavaScript para
+O objetivo deste exercício é praticar o uso de funções, iterações e condicionais em JavaScript para
 encontrar os 10 maiores números primos a partir de um número fornecido pelo usuário. Faça:
 
 1. Implementar uma função `isPrime(num)` que verifica se um número é primo ou não.
-2. Implementar uma função `findLargestPrimes()" que solicita ao usuário um número comoentrada e, em seguida, encontra e exibe os 10 maiores números primos a partir desse número.
-3. Utilizar um loop para iterar através dos números a partir da entrada do usuário e verificar se cada número é primo ou não utilizando a função 'isPrime()* 
-4. Manter uma contagem dos números primos encontrados e imprimir os 10 maiores números primos. 
-
-Passos Sugeridos:
-1. Implemente a função `isPrime(num)` para verificar se um número é primo ou não. Você pode utilizar um algoritmo de verificação de primalidade, como o teste de divisão por todos os números menores que ele mesmo.
-2. Implemente a função `findLargestPrimes()` para solicitar um número ao usuário e iniciar a busca pelos 10 maiores números primos a partir desse número.
-3. Utilize um loop para iterar através dos números, começando pelo número fornecido pelo usuário, e verifique se cada número é primo utilizando a função `isPrime()`
+2. Implementar uma função `findLargestPrimes()` que solicita ao usuário um número como entrada e, em seguida, encontra e exibe os 10 maiores números primos a partir desse número.
+3. Utilizar um loop para iterar através dos números a partir da entrada do usuário e verificar se cada número é primo ou não utilizando a função `isPrime()` 
+4. Manter uma contagem dos números primos encontrados e imprimir os 10 maiores números primos.
