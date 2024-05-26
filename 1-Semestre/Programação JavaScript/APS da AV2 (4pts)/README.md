@@ -10,9 +10,9 @@
 - O link do GitHub da atividade deve ser entregue individualmente no local apropriado do AVA
 
 ## Dados do aluno:
-- Nome da disciplina: Programação Javascript
-- Código da Turma: 132N
-- Nome e matrícula do aluno: João Pedro Hammes Pacheco - 2024100014
+- **Nome da disciplina**: Programação Javascript
+- **Código da Turma**: 132N
+- **Nome e matrícula do aluno**: João Pedro Hammes Pacheco - 2024100014
 
 ## Descrição do Trabalho
 O objetivo deste exercício é praticar o uso de funções, iterações e condicionais em JavaScript para
