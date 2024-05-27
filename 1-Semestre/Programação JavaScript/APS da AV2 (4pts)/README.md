@@ -22,3 +22,12 @@ encontrar os 10 maiores números primos a partir de um número fornecido pelo us
 2. Implementar uma função `findLargestPrimes()` que solicita ao usuário um número como entrada e, em seguida, encontra e exibe os 10 maiores números primos a partir desse número.
 3. Utilizar um loop para iterar através dos números a partir da entrada do usuário e verificar se cada número é primo ou não utilizando a função `isPrime()` 
 4. Manter uma contagem dos números primos encontrados e imprimir os 10 maiores números primos.
+
+## Orientações para resolução
+Desenvolvi o código usando o terminal, então para executar o código localmente talvez seja necessário instalar o node na pasta onde você baixou o arquivo.
+
+1. Abra o terminal
+2. Entre na pasta onde baixou o arquivo
+3. Use o comando `npm init -y`
+4. Para executar o código use node aps.js
+5. Altere o valor do parâmetro nas chamadas das funções para testar outros casos.
