@@ -27,7 +27,7 @@ encontrar os 10 maiores números primos a partir de um número fornecido pelo us
 Desenvolvi o código usando o terminal, então para executar o código localmente talvez seja necessário instalar o node.js na pasta onde você baixou o arquivo.
 
 1. Abra o terminal
-2. Entre na pasta onde baixou o arquivo
-3. Use o comando `npm init -y`
-4. Para executar o código use node aps.js
+2. Entre na pasta onde baixou o arquivo.
+3. Use o comando  `npm init -y` .
+4. Para executar o código use o comando `node aps.js` no terminal.
 5. Altere o valor do parâmetro nas chamadas das funções para testar outros casos.
