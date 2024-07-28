@@ -1,1 +1,1 @@
-# Repositório dedicado a armazenar todo o conteúdo da minha graduação
+## Repositório dedicado a armazenar avaliações da minha graduação
