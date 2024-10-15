@@ -208,6 +208,13 @@ do Mongo Playground).
 Atualizar o autor de "1984" para "G. Orwell". 
 (Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
 do Mongo Playground).
+
+        //ERRADO
+        db.emprestimos.update(
+            { "produtos.$.titulo": "1984"},
+            { $set: {"produtos.$.autor": "G. Orwell"}}
+        )
+        
         // GPT
         db.emprestimos.updateMany(
             { "produtos.titulo": "1984" },
@@ -231,6 +238,23 @@ do Mongo Playground).
             { $set: { "produtos.$.autor": "G. Orwell" } }
         )
 
+        // Essa resposta att apenas a primeira ocorrência, mas veio direto do gabarito.
+        db.collection.update( 
+            { "produtos.titulo": "1984" }, 
+            { $set: { "produtos.$.autor": "G. Orwell" } } 
+        ) 
+
+        // Scarpelli
+        db.emprestimos.update({
+            "produtos.titulo": "1984",
+            "produtos.autor": "..."
+         },
+         { 
+           $set: { 
+              "emprestimo.$.titulo": "G. Orwell"
+           }
+         })
+
 // 4.2. Atualização 2 
 // 4.2.1. Modelo Normalizado 
 Atualizar o autor de "1984" para "G. Orwell" 
@@ -242,3 +266,63 @@ do Mongo Playground).
                 { "titulo": "1984" },
                 { $set: {"autor": "G. Orwell"}}
             )
+
+
+// 5. Realizar Consultas de Agregação 
+// 5.1. Agregação 1 
+// 5.1.1. Modelo Integrado 
+Contar quantos livros foram emprestados em cada empréstimo. 
+(Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
+do Mongo Playground).
+
+            // Correto
+            // $project: Seleciona os campos que você deseja incluir no resultado.
+                // responsavel: 1: Inclui o campo "responsável" no resultado.
+                // quantidade_livros: Usa o operador $size para contar o número de itens no array "produtos", que corresponde à quantidade de livros emprestados.      
+           db.collection.aggregate([
+                {
+                    $project: {
+                        responsavel: 1,
+                        quantidade_livros: { $size: "$produtos"}
+                    }
+                }
+           ])
+
+
+// 5.1.2. Modelo Normalizado 
+Contar quantos livros foram emprestados em cada empréstimo. 
+(Responda na forma de texto ou na forma de captura legível da tela (printscreen) do 
+Mongo Playground).
+
+                // Correto
+                db.emprestimos.aggregate([
+                    {
+                        $project: {
+                            responsavel: 1,
+                            quantidade_livros: { $size: "$livrosId"}
+                        }
+                    }
+                ])
+
+
+// 5.2. Agregação 2 
+// 5.2.1. Modelo Integrado 
+Listar os empréstimos que contêm mais de 1 livro. 
+(Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
+do Mongo Playground)
+
+                //Correto
+                db.collection.find({
+                    $expr: { $gt: [{ $size: "$produtos"}, 1]}
+                })
+
+
+// 5.2.2. Modelo Normalizado 
+Listar os empréstimos que contêm mais de 1 livro. 
+(Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
+do Mongo Playground).
+                
+                //Correto
+                db.emprestimos.find({
+                    $expr: { $gt: [{ $size: "$livrosId"}, 1]}
+                })
