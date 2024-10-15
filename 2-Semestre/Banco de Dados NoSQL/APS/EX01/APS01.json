@@ -1,0 +1,181 @@
+//1. Elaborar o Modelo Integrado 
+No modelo integrado, os detalhes dos livros estarão armazenados diretamente dentro 
+dos documentos de empréstimos. 
+
+{
+    "emprestimos": [ 
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29a1"), 
+            "responsavel": "Alice", 
+            "produtos": [ 
+            { "titulo": "1984"}, 
+            { "titulo": "Livro A"} 
+            ] 
+        }, 
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29a2"), 
+            "responsavel": "Bob", 
+            "produtos": [ 
+                { "titulo": "1984"}, 
+                { "titulo": "Livro B"}
+            ] 
+        },
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29a3"), 
+            "responsavel": "Ana", 
+            "produtos": [ 
+                { "titulo": "Livro A"}, 
+                { "titulo": "Livro B"}
+            ] 
+        }
+    ]
+}
+
+
+//2. Elaborar o Modelo Normalizado 
+No modelo normalizado, os empréstimos e livros são armazenados em coleções 
+separadas, e os empréstimos referenciam os livros por seus IDs. 
+(Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
+do Mongo Playground).
+
+    { 
+        "emprestimos": [
+            {
+                "_id": ObjectId("650a6b1a56e2e63a606e29a1"),
+                "responsavel": "Alice",
+                "livrosId": [
+                    ObjectId("703148977865703148977865"),
+                    ObjectId("084912486831084912486831")
+                ]
+            },
+            {
+                "_id": ObjectId("650a6b1a56e2e63a606e29a2"),
+                "responsavel": "Bob",
+                "livrosId": [
+                    ObjectId("703148977865703148977865"),
+                    ObjectId("547509865875547509865875")
+                ]
+            },
+            {
+                "_id": ObjectId("650a6b1a56e2e63a606e29a3"),
+                "responsavel": "Ana",
+                "livrosId": [
+                    ObjectId("084912486831084912486831"),
+                    ObjectId("547509865875547509865875")
+                ]
+            }
+        ],
+
+        "livros": [
+            {
+                "titulo": "1984",
+                "_id": ObjectId("703148977865703148977865")
+            },
+            {
+                "titulo": "Book A",
+                "_id": ObjectId("084912486831084912486831")
+            },
+            {
+                "titulo": "Book B",
+                "_id": ObjectId("547509865875547509865875")
+            }
+        ]
+    }
+
+
+// 3. Realizar consultas 
+// 3.1. Consulta 1 
+// 3.1.1. Serve para os dois Modelos
+Buscar todos os empréstimos de "Alice". 
+(Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
+do Mongo Playground
+
+    // query do modelo integrado
+        db.emprestimos.find({
+            responsavel: "Alice"
+        })
+
+    // query do modelo normalizado
+        db.emprestimos.find({
+            responsavel: "Alice"
+        })
+
+
+//3.1.2. Modelo Integrado 
+Buscar empréstimos que contêm o livro "1984". 
+ (Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
+do Mongo Playground).
+
+db.emprestimos.find({
+    "produtos.titulo": "1984"
+})
+
+
+//3.2. Consulta 2 
+//3.2.1. Modelo Normalizado 
+Buscar empréstimos que referenciam o livro "1984". 
+(Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
+do Mongo Playground). 
+
+    //Resolução Carlos (Melhor):
+    db.emprestimos.find({
+        "livrosId": ObjectId("703148977865703148977865")
+    })
+    // Resultado:
+    // [
+    //     {
+    //       "_id": ObjectId("650a6b1a56e2e63a606e29a1"),
+    //       "livrosId": [
+    //         ObjectId("703148977865703148977865"),
+    //         ObjectId("084912486831084912486831")
+    //       ],
+    //       "responsavel": "Alice"
+    //     },
+    //     {
+    //       "_id": ObjectId("650a6b1a56e2e63a606e29a2"),
+    //       "livrosId": [
+    //         ObjectId("703148977865703148977865"),
+    //         ObjectId("547509865875547509865875")
+    //       ],
+    //       "responsavel": "Bob"
+    //     }
+    //   ]
+
+    //Resolução Pedro:
+    // A query retorna todos os empréstimos que contem o ObjectId do parâmetro
+    //  dentro do array livrosId
+    db.emprestimos.find({
+        "livrosId": {$in: [ObjectId("703148977865703148977865")]}
+    })
+    // Resultado:
+    // [
+    //     {
+    //       "_id": ObjectId("650a6b1a56e2e63a606e29a1"),
+    //       "livrosId": [
+    //         ObjectId("703148977865703148977865"),
+    //         ObjectId("084912486831084912486831")
+    //       ],
+    //       "responsavel": "Alice"
+    //     },
+    //     {
+    //       "_id": ObjectId("650a6b1a56e2e63a606e29a2"),
+    //       "livrosId": [
+    //         ObjectId("703148977865703148977865"),
+    //         ObjectId("547509865875547509865875")
+    //       ],
+    //       "responsavel": "Bob"
+    //     }
+    //   ]
+
+    //Resolução Pedro (2):
+    // Procurar o livro com o título 1984 e capturar o ID
+    // Com o ID percorrer os empréstimos
+    // Retornar todos os empréstimos que tenham no array de livrosId o ID retornado no passo 1.
+    db.livros.aggregate([
+        {
+            $match: { "titulo": "1984"}  //ok retorna o livro e todos os campos
+        },
+        {
+            $project: {_id: 1, titulo: 0} //ok ObjectId("703148977865703148977865")
+        }
+    ])

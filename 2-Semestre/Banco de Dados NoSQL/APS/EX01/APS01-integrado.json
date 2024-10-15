@@ -1,0 +1,28 @@
+{
+    "emprestimos": [ 
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29a1"), 
+            "responsavel": "Alice", 
+            "produtos": [ 
+            { "titulo": "1984"}, 
+            { "titulo": "Livro A"} 
+            ] 
+        }, 
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29a2"), 
+            "responsavel": "Bob", 
+            "produtos": [ 
+                { "titulo": "1984"}, 
+                { "titulo": "Livro B"}
+            ] 
+        },
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29a3"), 
+            "responsavel": "Ana", 
+            "produtos": [ 
+                { "titulo": "Livro A"}, 
+                { "titulo": "Livro B"}
+            ] 
+        }
+    ]
+}

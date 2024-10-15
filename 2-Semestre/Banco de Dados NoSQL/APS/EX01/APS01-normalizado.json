@@ -1,0 +1,43 @@
+{ 
+    "emprestimos": [
+        {
+            "_id": ObjectId("650a6b1a56e2e63a606e29a1"),
+            "responsavel": "Alice",
+            "livrosId": [
+                ObjectId("703148977865703148977865"),
+                ObjectId("084912486831084912486831")
+            ]
+        },
+        {
+            "_id": ObjectId("650a6b1a56e2e63a606e29a2"),
+            "responsavel": "Bob",
+            "livrosId": [
+                ObjectId("703148977865703148977865"),
+                ObjectId("547509865875547509865875")
+            ]
+        },
+        {
+            "_id": ObjectId("650a6b1a56e2e63a606e29a3"),
+            "responsavel": "Ana",
+            "livrosId": [
+                ObjectId("084912486831084912486831"),
+                ObjectId("547509865875547509865875")
+            ]
+        }
+    ],
+
+    "livros": [
+        {
+            "titulo": "1984",
+            "_id": ObjectId("703148977865703148977865")
+        },
+        {
+            "titulo": "Book A",
+            "_id": ObjectId("084912486831084912486831")
+        },
+        {
+            "titulo": "Book B",
+            "_id": ObjectId("547509865875547509865875")
+        }
+    ]
+}
