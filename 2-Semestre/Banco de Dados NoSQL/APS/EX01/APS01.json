@@ -168,9 +168,9 @@ do Mongo Playground).
     //   ]
 
     //Resolução Pedro (2):
-    // Procurar o livro com o título 1984 e capturar o ID
-    // Com o ID percorrer os empréstimos
-    // Retornar todos os empréstimos que tenham no array de livrosId o ID retornado no passo 1.
+    // (feito) Procurar o livro com o título 1984 e capturar o ID
+    // (feito) Com o ID percorrer os empréstimos
+    //  (pendente) Retornar todos os empréstimos que tenham no array de livrosId o ID retornado no passo 1.
     db.livros.aggregate([
         {
             $match: { "titulo": "1984"}  //ok retorna o livro e todos os campos
@@ -179,3 +179,11 @@ do Mongo Playground).
             $project: {_id: 1, titulo: 0} //ok ObjectId("703148977865703148977865")
         }
     ])
+
+
+// 4. Realizar Atualizações 
+// 4.1. Atualização 1 
+// 4.1.1. Serve para os dois Modelos  
+Atualizar o nome do responsável "Alice" para "Alice Cooper". 
+(Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
+do Mongo Playground).
