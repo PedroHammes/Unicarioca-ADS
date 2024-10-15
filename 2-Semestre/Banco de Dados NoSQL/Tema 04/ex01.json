@@ -1,0 +1,160 @@
+// Escolhi fazer um Banco de dados normalizado.
+db={
+    "loan": [
+      {
+        "_id": ObjectId("000000000000000000000001"),
+        "customer": "Manuel",
+        "date": "04/04/2004",
+        "books": [
+          ObjectId("000000000000000000000001")
+        ]
+      },
+      {
+        "_id": ObjectId("000000000000000000000002"),
+        "customer": "Manuel",
+        "date": "04/05/2004",
+        "books": [
+          ObjectId("000000000000000000000002"),
+          ObjectId("000000000000000000000003")
+        ]
+      },
+      {
+        "_id": ObjectId("000000000000000000000003"),
+        "customer": "Mario",
+        "date": "04/05/2004",
+        "books": [
+          ObjectId("000000000000000000000003")
+        ]
+      }
+    ],
+    "books": [
+      {
+        "_id": ObjectId("000000000000000000000001"),
+        "title": "Book 1",
+        "description": "...",
+        "date": "01/01/2001",
+        "pages": 96,
+        "authors": [
+            {
+                "name": "Jhon",
+                "author_id": ObjectId("000000000000000000000001")
+            },
+            {
+                "name": "Ana",
+                "author_id": ObjectId("000000000000000000000002")
+            },
+            {
+                "name": "Mary",
+                "author_id": ObjectId("000000000000000000000003")
+            }
+        ]
+      },
+      {
+        "_id": ObjectId("000000000000000000000002"),
+        "title": "Book 2",
+        "description": "...",
+        "date": "02/02/2002",
+        "pages": 100,
+        "authors": [
+            {
+                "name": "Jhon",
+                "author_id": ObjectId("000000000000000000000001")
+            }
+        ]
+      },
+      {
+        "_id": ObjectId("000000000000000000000003"),
+        "title": "Book 3",
+        "description": "...",
+        "date": "03/03/2003",
+        "pages": 104,
+        "authors": [
+            {
+                "name": "Ana",
+                "author_id": ObjectId("000000000000000000000002")
+            },
+            {
+                "name": "Mary",
+                "author_id": ObjectId("000000000000000000000003")
+            }
+        ]
+      }
+    ],
+    "authors": [
+      {
+        "_id": ObjectId("000000000000000000000001"),
+        "name": "Jhon",
+        "bio": "...",
+        "writedBooks": [
+          ObjectId("000000000000000000000001"),
+          ObjectId("000000000000000000000002")
+        ]
+      },
+      {
+        "_id": ObjectId("000000000000000000000002"),
+        "name": "Ana",
+        "bio": "...",
+        "writedBooks": [
+          ObjectId("000000000000000000000001"),
+          ObjectId("000000000000000000000003")
+        ]
+      },
+      {
+        "_id": ObjectId("000000000000000000000003"),
+        "name": "Mary",
+        "bio": "...",
+        "writedBooks": [
+          ObjectId("000000000000000000000001"),
+          ObjectId("000000000000000000000003")
+        ]
+      }
+    ]
+}
+
+//1. Listar todos os livros de um autor específico.
+db.books.find({
+    authors: {
+      $in: [
+        ObjectId("000000000000000000000001")
+      ]
+    }
+})
+
+//  $in: Corresponde aos valores que estão na matriz especificada.
+//  A query acima vai vasculhar a collection books.
+//  Para cada entidade da collection 'books' ela vai percorrer o array authors
+//      ela vai procurar dentro deste array o valor correspondente ao ObjectId (identificador do author cujo os livros estamos buscando) passado como parâmetro
+//      Se encontrar significa que o author escreveu o livro, então incluirá este na resposta:
+//
+// Foram retornados os livros 1 e 2, os únicos que possuem Jhon como seu autor.
+// [
+//     {
+//       "_id": ObjectId("000000000000000000000001"),
+//       "authors": [
+//         ObjectId("000000000000000000000001"),
+//         ObjectId("000000000000000000000002"),
+//         ObjectId("000000000000000000000003")
+//       ],
+//       "date": "01/01/2001",
+//       "description": "...",
+//       "pages": 96,
+//       "title": "Book 1"
+//     },
+//     {
+//       "_id": ObjectId("000000000000000000000002"),
+//       "authors": [
+//         ObjectId("000000000000000000000001")
+//       ],
+//       "date": "02/02/2002",
+//       "description": "...",
+//       "pages": 100,
+//       "title": "Book 2"
+//     }
+//   ]
+
+
+// 2. Recuperar detalhes de um pedido específico, incluindo os livros 
+// comprados e as informações do cliente.
+db.loan.find({
+    "_id": ObjectId("000000000000000000000001")
+})

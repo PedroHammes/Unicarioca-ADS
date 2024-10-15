@@ -1,0 +1,61 @@
+db_Integrado = {
+    "pedidos_integrado": [ 
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29a1"), 
+            "nome_cliente": "Alice", 
+            "data_pedido": "2024-08-20", 
+            "produtos": [ 
+            { "nome": "Laptop", "preco": 1500, "quantidade": 1 }, 
+            { "nome": "Mouse", "preco": 50, "quantidade": 2 } 
+            ] 
+        }, 
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29a2"), 
+            "nome_cliente": "Bob", 
+            "data_pedido": "2024-08-21", 
+            "produtos": [ 
+            { "nome": "Teclado", "preco": 100, "quantidade": 1 } 
+            ] 
+        } 
+    ]
+}
+
+db_Normalizado = {
+    "pedidos_normalizado": [ 
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29a1"), 
+            "nome_cliente": "Alice", 
+            "data_pedido": "2024-08-20", 
+            "ids_produtos": [ 
+            ObjectId("650a6b1a56e2e63a606e29b1"), 
+            ObjectId("650a6b1a56e2e63a606e29b2") 
+            ] 
+        }, 
+        { 
+          "_id": ObjectId("650a6b1a56e2e63a606e29a2"), 
+          "nome_cliente": "Bob", 
+          "data_pedido": "2024-08-21", 
+          "ids_produtos": [ 
+            ObjectId("650a6b1a56e2e63a606e29b3") 
+          ] 
+        } 
+      ],
+
+    "produtos_normalizado": [ 
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29b1"), 
+            "nome": "Laptop", 
+            "preco": 1500 
+        }, 
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29b2"), 
+            "nome": "Mouse", 
+            "preco": 50 
+        }, 
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29b3"), 
+            "nome": "Teclado", 
+            "preco": 100 
+        } 
+    ]
+}

@@ -1,0 +1,99 @@
+//1. Elaborar o Modelo Integrado 
+No modelo integrado, os detalhes dos livros estarão armazenados diretamente dentro 
+dos documentos de empréstimos. 
+
+db = {
+    "emprestimos": [ 
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29a1"), 
+            "responsavel": "Alice", 
+            "produtos": [ 
+            { "titulo": "1984"}, 
+            { "titulo": "Livro B"} 
+            ] 
+        }, 
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29a2"), 
+            "responsavel": "Bob", 
+            "produtos": [ 
+                { "titulo": "1984"}, 
+                { "titulo": "Livro C"}
+            ] 
+        } 
+    ]
+}
+
+
+//2. Elaborar o Modelo Normalizado 
+No modelo normalizado, os empréstimos e livros são armazenados em coleções 
+separadas, e os empréstimos referenciam os livros por seus IDs. 
+(Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
+do Mongo Playground).
+
+db = { 
+    "loan": [
+        {
+            "_id": ObjectId("758629944528758629944528"),
+            "responsavel": "Alice",
+            "BooksId": [
+                ObjectId("703148977865703148977865"),
+                ObjectId("084912486831084912486831")
+            ]
+        },
+        {
+            "_id": ObjectId("668908418107668908418107"),
+            "responsavel": "Joe",
+            "BooksId": [
+                ObjectId("547509865875547509865875")
+            ]
+        }
+    ],
+
+    "books": [
+        {
+            "title": "1984",
+            "_id": ObjectId("703148977865703148977865")
+        },
+        {
+            "title": "Book B",
+            "_id": ObjectId("084912486831084912486831")
+        },
+        {
+            "title": "Book C",
+            "_id": ObjectId("547509865875547509865875")
+        }
+    ]
+}
+
+
+// 3. Realizar consultas 
+// 3.1. Consulta 1 
+// 3.1.1. Serve para os dois Modelos
+Buscar todos os empréstimos de "Alice". 
+(Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
+do Mongo Playground
+
+db.biblioteca.find({
+    responsavel: "Alice"
+})
+
+
+//3.1.2. Modelo Integrado 
+Buscar empréstimos que contêm o livro "1984". 
+ (Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
+do Mongo Playground).
+
+db.emprestimos.find({
+    "produtos.titulo": "1984"
+})
+
+
+//3.2. Consulta 2 
+//3.2.1. Modelo Normalizado 
+Buscar empréstimos que referenciam o livro "1984". 
+(Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
+do Mongo Playground). 
+
+db.loan.find({
+    "BooksId": ObjectId("703148977865703148977865")
+})
