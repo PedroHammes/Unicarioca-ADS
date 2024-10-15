@@ -1,0 +1,108 @@
+db={
+    "loan": [
+      {
+        "_id": ObjectId("000000000000000000000001"),
+        "customer": "Manuel",
+        "date": "04/04/2004",
+        "books": [
+          ObjectId("000000000000000000000001")
+        ]
+      },
+      {
+        "_id": ObjectId("000000000000000000000002"),
+        "customer": "Manuel",
+        "date": "04/05/2004",
+        "books": [
+          ObjectId("000000000000000000000002"),
+          ObjectId("000000000000000000000003")
+        ]
+      },
+      {
+        "_id": ObjectId("000000000000000000000003"),
+        "customer": "Mario",
+        "date": "04/05/2004",
+        "books": [
+          ObjectId("000000000000000000000003")
+        ]
+      }
+    ],
+
+    "books": [
+      {
+        "_id": ObjectId("000000000000000000000001"),
+        "title": "Book 1",
+        "description": "...",
+        "date": "01/01/2001",
+        "pages": 96,
+        "authors": [
+          ObjectId("000000000000000000000001"),
+          ObjectId("000000000000000000000002"),
+          ObjectId("000000000000000000000003")
+        ]
+      },
+      {
+        "_id": ObjectId("000000000000000000000002"),
+        "title": "Book 2",
+        "description": "...",
+        "date": "02/02/2002",
+        "pages": 100,
+        "authors": [
+          ObjectId("000000000000000000000001")
+        ]
+      },
+      {
+        "_id": ObjectId("000000000000000000000003"),
+        "title": "Book 3",
+        "description": "...",
+        "date": "03/03/2003",
+        "pages": 104,
+        "authors": [
+          ObjectId("000000000000000000000002"),
+          ObjectId("000000000000000000000003")
+        ]
+      }
+    ],
+
+    "authors": [
+      {
+        "_id": ObjectId("000000000000000000000001"),
+        "name": "Jhon",
+        "bio": "...",
+        "writedBooks": [
+          ObjectId("000000000000000000000001"),
+          ObjectId("000000000000000000000002")
+        ]
+      },
+      {
+        "_id": ObjectId("000000000000000000000002"),
+        "name": "Ana",
+        "bio": "...",
+        "writedBooks": [
+          ObjectId("000000000000000000000001"),
+          ObjectId("000000000000000000000003")
+        ]
+      },
+      {
+        "_id": ObjectId("000000000000000000000003"),
+        "name": "Mary",
+        "bio": "...",
+        "writedBooks": [
+          ObjectId("000000000000000000000001"),
+          ObjectId("000000000000000000000003")
+        ]
+      }
+    ]
+}
+
+// AGGREGATION()
+
+// Esta query retorna os livros escritos por algum autor
+db.books.aggregate([
+    {$match: { authors: ObjectId("000000000000000000000001")}}
+])
+
+// Esta query retorna o total de livros escritos por algum autor.
+db.books.aggregate([
+    {$match: { authors: ObjectId("000000000000000000000001")}},
+    {$group: {_id: null, totalBooksWrited: {$sum: 1}}}
+])
