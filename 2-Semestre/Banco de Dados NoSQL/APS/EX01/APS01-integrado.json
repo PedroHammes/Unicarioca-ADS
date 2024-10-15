@@ -4,24 +4,24 @@
             "_id": ObjectId("650a6b1a56e2e63a606e29a1"), 
             "responsavel": "Alice", 
             "produtos": [ 
-            { "titulo": "1984"}, 
-            { "titulo": "Livro A"} 
+            { "titulo": "1984", "autor": "..." }, 
+            { "titulo": "Livro A", "autor": "..." } 
             ] 
         }, 
         { 
             "_id": ObjectId("650a6b1a56e2e63a606e29a2"), 
             "responsavel": "Bob", 
             "produtos": [ 
-                { "titulo": "1984"}, 
-                { "titulo": "Livro B"}
+                { "titulo": "1984", "autor": "..." }, 
+                { "titulo": "Livro B", "autor": "..." }
             ] 
         },
         { 
             "_id": ObjectId("650a6b1a56e2e63a606e29a3"), 
             "responsavel": "Ana", 
             "produtos": [ 
-                { "titulo": "Livro A"}, 
-                { "titulo": "Livro B"}
+                { "titulo": "Livro A", "autor": "..." }, 
+                { "titulo": "Livro B", "autor": "..." }
             ] 
         }
     ]

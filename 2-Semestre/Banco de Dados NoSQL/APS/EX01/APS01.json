@@ -2,34 +2,34 @@
 No modelo integrado, os detalhes dos livros estarão armazenados diretamente dentro 
 dos documentos de empréstimos. 
 
-{
-    "emprestimos": [ 
-        { 
-            "_id": ObjectId("650a6b1a56e2e63a606e29a1"), 
-            "responsavel": "Alice", 
-            "produtos": [ 
-            { "titulo": "1984"}, 
-            { "titulo": "Livro A"} 
-            ] 
-        }, 
-        { 
-            "_id": ObjectId("650a6b1a56e2e63a606e29a2"), 
-            "responsavel": "Bob", 
-            "produtos": [ 
-                { "titulo": "1984"}, 
-                { "titulo": "Livro B"}
-            ] 
-        },
-        { 
-            "_id": ObjectId("650a6b1a56e2e63a606e29a3"), 
-            "responsavel": "Ana", 
-            "produtos": [ 
-                { "titulo": "Livro A"}, 
-                { "titulo": "Livro B"}
-            ] 
-        }
-    ]
-}
+    {
+        "emprestimos": [ 
+            { 
+                "_id": ObjectId("650a6b1a56e2e63a606e29a1"), 
+                "responsavel": "Alice", 
+                "produtos": [ 
+                { "titulo": "1984", "autor": "..." }, 
+                { "titulo": "Livro A", "autor": "..." } 
+                ] 
+            }, 
+            { 
+                "_id": ObjectId("650a6b1a56e2e63a606e29a2"), 
+                "responsavel": "Bob", 
+                "produtos": [ 
+                    { "titulo": "1984", "autor": "..." }, 
+                    { "titulo": "Livro B", "autor": "..." }
+                ] 
+            },
+            { 
+                "_id": ObjectId("650a6b1a56e2e63a606e29a3"), 
+                "responsavel": "Ana", 
+                "produtos": [ 
+                    { "titulo": "Livro A", "autor": "..." }, 
+                    { "titulo": "Livro B", "autor": "..." }
+                ] 
+            }
+        ]
+    }
 
 
 //2. Elaborar o Modelo Normalizado 
@@ -68,16 +68,19 @@ do Mongo Playground).
 
         "livros": [
             {
+                "_id": ObjectId("703148977865703148977865"),
                 "titulo": "1984",
-                "_id": ObjectId("703148977865703148977865")
+                "autor": "..."
             },
             {
+                "_id": ObjectId("084912486831084912486831"),
                 "titulo": "Book A",
-                "_id": ObjectId("084912486831084912486831")
+                "autor": "..."
             },
             {
-                "titulo": "Book B",
                 "_id": ObjectId("547509865875547509865875")
+                "titulo": "Book B",
+                "autor": "..."
             }
         ]
     }
@@ -106,9 +109,9 @@ Buscar empréstimos que contêm o livro "1984".
  (Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
 do Mongo Playground).
 
-db.emprestimos.find({
-    "produtos.titulo": "1984"
-})
+    db.emprestimos.find({
+        "produtos.titulo": "1984"
+    })
 
 
 //3.2. Consulta 2 
@@ -199,3 +202,43 @@ do Mongo Playground).
             {"responsavel": "Alice"},
             { $set: {"responsavel": "Alice Cooper"}}
         )
+
+
+// 4.1.2. Modelo Integrado 
+Atualizar o autor de "1984" para "G. Orwell". 
+(Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
+do Mongo Playground).
+        // GPT
+        db.emprestimos.updateMany(
+            { "produtos.titulo": "1984" },
+            { $set: { "produtos.$[].autor": "G. Orwell" } }
+        )
+
+        // GPT 2 (?)
+        // Identifica os emprestimos que contenham este livro
+        db.emprestimos.find({
+            "produtos.titulo": "1984"
+        })
+
+        //atualiza um registro por vez
+        db.emprestimos.update(
+            { "_id": ObjectId("650a6b1a56e2e63a606e29a1"), "produtos.titulo":"1984" },
+            { $set: {"produtos.$.autor": "G. Orwell"}}
+        )
+
+        db.emprestimos.updateOne(
+            { "_id": ObjectId("650a6b1a56e2e63a606e29a2"), "produtos.titulo": "1984" },
+            { $set: { "produtos.$.autor": "G. Orwell" } }
+        )
+
+// 4.2. Atualização 2 
+// 4.2.1. Modelo Normalizado 
+Atualizar o autor de "1984" para "G. Orwell" 
+(Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
+do Mongo Playground).
+
+            // Correto
+            db.livros.update(
+                { "titulo": "1984" },
+                { $set: {"autor": "G. Orwell"}}
+            )
