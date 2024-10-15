@@ -187,3 +187,15 @@ do Mongo Playground).
 Atualizar o nome do responsável "Alice" para "Alice Cooper". 
 (Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
 do Mongo Playground).
+
+        // Modelo integrado
+        db.emprestimos.update(
+            {"responsavel": "Alice"},
+            { $set: {"responsavel": "Alice Cooper"}}
+        )
+
+        //  Modelo normalizado
+        db.emprestimos.update(
+            {"responsavel": "Alice"},
+            { $set: {"responsavel": "Alice Cooper"}}
+        )
