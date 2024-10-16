@@ -2,7 +2,7 @@
   { 
       "_id": ObjectId("650a6b1a56e2e63a606e29a1"), 
       "responsavel": "Alice", 
-      "produtos": [ 
+      "livros": [ 
       { "titulo": "1984", "autor": "..." }, 
       { "titulo": "Livro A", "autor": "..." } 
       ] 
@@ -10,7 +10,7 @@
   { 
       "_id": ObjectId("650a6b1a56e2e63a606e29a2"), 
       "responsavel": "Bob", 
-      "produtos": [ 
+      "livros": [ 
           { "titulo": "1984", "autor": "..." }, 
           { "titulo": "Livro B", "autor": "..." }
       ] 
@@ -18,7 +18,7 @@
   { 
       "_id": ObjectId("650a6b1a56e2e63a606e29a3"), 
       "responsavel": "Ana", 
-      "produtos": [ 
+      "livros": [ 
           { "titulo": "Livro A", "autor": "..." }, 
           { "titulo": "Livro B", "autor": "..." }
       ] 

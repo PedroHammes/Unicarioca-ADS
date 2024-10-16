@@ -2,34 +2,32 @@
 No modelo integrado, os detalhes dos livros estarão armazenados diretamente dentro 
 dos documentos de empréstimos. 
 
-    {
-        "emprestimos": [ 
-            { 
-                "_id": ObjectId("650a6b1a56e2e63a606e29a1"), 
-                "responsavel": "Alice", 
-                "produtos": [ 
+    [ 
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29a1"), 
+            "responsavel": "Alice", 
+            "livros": [ 
                 { "titulo": "1984", "autor": "..." }, 
                 { "titulo": "Livro A", "autor": "..." } 
-                ] 
-            }, 
-            { 
-                "_id": ObjectId("650a6b1a56e2e63a606e29a2"), 
-                "responsavel": "Bob", 
-                "produtos": [ 
-                    { "titulo": "1984", "autor": "..." }, 
-                    { "titulo": "Livro B", "autor": "..." }
-                ] 
-            },
-            { 
-                "_id": ObjectId("650a6b1a56e2e63a606e29a3"), 
-                "responsavel": "Ana", 
-                "produtos": [ 
-                    { "titulo": "Livro A", "autor": "..." }, 
-                    { "titulo": "Livro B", "autor": "..." }
-                ] 
-            }
-        ]
-    }
+            ] 
+        }, 
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29a2"), 
+            "responsavel": "Bob", 
+            "livros": [ 
+                { "titulo": "1984", "autor": "..." }, 
+                { "titulo": "Livro B", "autor": "..." }
+            ] 
+        },
+        { 
+            "_id": ObjectId("650a6b1a56e2e63a606e29a3"), 
+            "responsavel": "Ana", 
+            "livros": [ 
+                { "titulo": "Livro A", "autor": "..." }, 
+                { "titulo": "Livro B", "autor": "..." }
+            ] 
+        }
+    ]
 
 
 //2. Elaborar o Modelo Normalizado 
@@ -94,7 +92,7 @@ Buscar todos os empréstimos de "Alice".
 do Mongo Playground
 
     // query do modelo integrado
-        db.emprestimos.find({
+        db.collection.find({
             responsavel: "Alice"
         })
 
@@ -109,8 +107,8 @@ Buscar empréstimos que contêm o livro "1984".
  (Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
 do Mongo Playground).
 
-    db.emprestimos.find({
-        "produtos.titulo": "1984"
+    db.collection.find({
+        "livros.titulo": "1984"
     })
 
 
@@ -124,64 +122,6 @@ do Mongo Playground).
     db.emprestimos.find({
         "livrosId": ObjectId("703148977865703148977865")
     })
-    // Resultado:
-    // [
-    //     {
-    //       "_id": ObjectId("650a6b1a56e2e63a606e29a1"),
-    //       "livrosId": [
-    //         ObjectId("703148977865703148977865"),
-    //         ObjectId("084912486831084912486831")
-    //       ],
-    //       "responsavel": "Alice"
-    //     },
-    //     {
-    //       "_id": ObjectId("650a6b1a56e2e63a606e29a2"),
-    //       "livrosId": [
-    //         ObjectId("703148977865703148977865"),
-    //         ObjectId("547509865875547509865875")
-    //       ],
-    //       "responsavel": "Bob"
-    //     }
-    //   ]
-
-    //Resolução Pedro:
-    // A query retorna todos os empréstimos que contem o ObjectId do parâmetro
-    //  dentro do array livrosId
-    db.emprestimos.find({
-        "livrosId": {$in: [ObjectId("703148977865703148977865")]}
-    })
-    // Resultado:
-    // [
-    //     {
-    //       "_id": ObjectId("650a6b1a56e2e63a606e29a1"),
-    //       "livrosId": [
-    //         ObjectId("703148977865703148977865"),
-    //         ObjectId("084912486831084912486831")
-    //       ],
-    //       "responsavel": "Alice"
-    //     },
-    //     {
-    //       "_id": ObjectId("650a6b1a56e2e63a606e29a2"),
-    //       "livrosId": [
-    //         ObjectId("703148977865703148977865"),
-    //         ObjectId("547509865875547509865875")
-    //       ],
-    //       "responsavel": "Bob"
-    //     }
-    //   ]
-
-    //Resolução Pedro (2):
-    // (feito) Procurar o livro com o título 1984 e capturar o ID
-    // (feito) Com o ID percorrer os empréstimos
-    //  (pendente) Retornar todos os empréstimos que tenham no array de livrosId o ID retornado no passo 1.
-    db.livros.aggregate([
-        {
-            $match: { "titulo": "1984"}  //ok retorna o livro e todos os campos
-        },
-        {
-            $project: {_id: 1, titulo: 0} //ok ObjectId("703148977865703148977865")
-        }
-    ])
 
 
 // 4. Realizar Atualizações 
@@ -192,7 +132,7 @@ Atualizar o nome do responsável "Alice" para "Alice Cooper".
 do Mongo Playground).
 
         // Modelo integrado
-        db.emprestimos.update(
+        db.collection.update(
             {"responsavel": "Alice"},
             { $set: {"responsavel": "Alice Cooper"}}
         )
@@ -209,51 +149,19 @@ Atualizar o autor de "1984" para "G. Orwell".
 (Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
 do Mongo Playground).
 
-        //ERRADO
-        db.emprestimos.update(
-            { "produtos.$.titulo": "1984"},
-            { $set: {"produtos.$.autor": "G. Orwell"}}
-        )
-        
-        // GPT
-        db.emprestimos.updateMany(
-            { "produtos.titulo": "1984" },
-            { $set: { "produtos.$[].autor": "G. Orwell" } }
-        )
-
-        // GPT 2 (?)
-        // Identifica os emprestimos que contenham este livro
-        db.emprestimos.find({
-            "produtos.titulo": "1984"
-        })
-
-        //atualiza um registro por vez
-        db.emprestimos.update(
-            { "_id": ObjectId("650a6b1a56e2e63a606e29a1"), "produtos.titulo":"1984" },
-            { $set: {"produtos.$.autor": "G. Orwell"}}
-        )
-
-        db.emprestimos.updateOne(
-            { "_id": ObjectId("650a6b1a56e2e63a606e29a2"), "produtos.titulo": "1984" },
-            { $set: { "produtos.$.autor": "G. Orwell" } }
-        )
-
         // Essa resposta att apenas a primeira ocorrência, mas veio direto do gabarito.
         db.collection.update( 
             { "produtos.titulo": "1984" }, 
-            { $set: { "produtos.$.autor": "G. Orwell" } } 
-        ) 
+            { $set: { "livros.$.autor": "G. Orwell" } } 
+        )
 
-        // Scarpelli
-        db.emprestimos.update({
-            "produtos.titulo": "1984",
-            "produtos.autor": "..."
-         },
-         { 
-           $set: { 
-              "emprestimo.$.titulo": "G. Orwell"
-           }
-         })
+        // Em teoria esta query alteraria o autor do 1984 em todas as ocorrências do mesmo em empréstimos
+        //  mas o mongoplayground não aceita a função updateMany então não consigo validar a teoria.
+        db.collection.updateMany(
+            { "livros.titulo": "1984" },
+            { $set: { "livros.$[elem].autor": "G. Orwell" } },
+            { arrayFilters: [{ "elem.titulo": "1984"}]}
+        )
 
 // 4.2. Atualização 2 
 // 4.2.1. Modelo Normalizado 
@@ -275,18 +183,18 @@ Contar quantos livros foram emprestados em cada empréstimo.
 (Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
 do Mongo Playground).
 
-            // Correto
+            // Correto (Alternativa 1)
             // $project: Seleciona os campos que você deseja incluir no resultado.
                 // responsavel: 1: Inclui o campo "responsável" no resultado.
                 // quantidade_livros: Usa o operador $size para contar o número de itens no array "produtos", que corresponde à quantidade de livros emprestados.      
-           db.collection.aggregate([
-                {
-                    $project: {
-                        responsavel: 1,
-                        quantidade_livros: { $size: "$produtos"}
+            db.collection.aggregate([
+                    {
+                        $project: {
+                            responsavel: 1,
+                            quantidade: { $size: "$livros"}
+                        }
                     }
-                }
-           ])
+            ])
 
 
 // 5.1.2. Modelo Normalizado 
@@ -299,7 +207,7 @@ Mongo Playground).
                     {
                         $project: {
                             responsavel: 1,
-                            quantidade_livros: { $size: "$livrosId"}
+                            quantidade: { $size: "$livrosId"}
                         }
                     }
                 ])
@@ -311,10 +219,10 @@ Listar os empréstimos que contêm mais de 1 livro.
 (Responda na forma de texto ou na forma de captura legível da tela (printscreen) 
 do Mongo Playground)
 
-                //Correto
-                db.collection.find({
-                    $expr: { $gt: [{ $size: "$produtos"}, 1]}
-                })
+                db.collection.aggregate([
+                    {$project: { quantidade: {$size: "$livros"}}},
+                    {$match: {quantidade: {$gt: 1}}}
+                ])
 
 
 // 5.2.2. Modelo Normalizado 
