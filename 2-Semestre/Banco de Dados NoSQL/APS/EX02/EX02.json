@@ -48,60 +48,7 @@
 ]
 
 // 2. Elaborar o Modelo Normalizado
-{
-    "medicos": [
-        {
-            "_id": ObjectId("150a6b1a56e2e63a606e29a1"),
-            "medico": "Dr. A",
-            "especialidade": "Psicólogo",
-            "consultas":[
-                ObjectId("c50a6b1a56e2e63a606e29a1"),
-                ObjectId("c50a6b1a56e2e63a606e29a2")
-            ]
-        },
-        {
-            "_id": ObjectId("150a6b1a56e2e63a606e29a2"),
-            "medico": "Dra. B",
-            "especialidade": "Nutricionista",
-            "consultas":[
-                ObjectId("c50a6b1a56e2e63a606e29a3"),
-                ObjectId("c50a6b1a56e2e63a606e29a4")
-            ]
-        },
-        {
-            "_id": ObjectId("150a6b1a56e2e63a606e29a3"),
-            "medico": "Dra. C",
-            "especialidade": "Ortopedista",
-            "consultas":[
-                ObjectId("c50a6b1a56e2e63a606e29a3"),
-                ObjectId("c50a6b1a56e2e63a606e29a2")
-            ]
-        }
-    ],
 
-    "consultas": [
-        {
-            "_id": ObjectId("c50a6b1a56e2e63a606e29a1"),
-            "paciente": "Ana",
-            "data": "01-04-2024"
-        },
-        {
-            "_id": ObjectId("c50a6b1a56e2e63a606e29a2"),
-            "paciente": "Joe",
-            "data": "02-04-2024"
-        },
-        {
-            "_id": ObjectId("c50a6b1a56e2e63a606e29a3"),
-            "paciente": "May",
-            "data": "01-04-2024"
-        },
-        {
-            "_id": ObjectId("c50a6b1a56e2e63a606e29a4"),
-            "paciente": "Edu",
-            "data": "02-04-2024"
-        }
-    ]
-}
 
 // 3. Realizar Consultas 
 // ▪ Buscar todas as consultas do paciente "Alice" (para os dois modelos) 
@@ -135,12 +82,60 @@
 // (Responda na forma captura legível da tela (printscreen) do Mongo 
 // Playground).
 
+
+
 //  4. Realizar Atualizações 
 //  ▪ Atualizar a data da consulta de "Alice" para "15-10-2024" (para os dois modelos) 
 //      (Responda na forma captura legível da tela (printscreen) do Mongo Playground). 
 
+        //Modelo Integrado
+        db.collection.update(
+            { "consultas.paciente": "Alice" }, // Localiza o médico que tem uma consulta com "Alice"
+            { $set: { "consultas.$.data": "2024-10-15T00:00:00" } } // Atualiza a data da consulta dela
+        )
+        //{ "consultas.paciente": "Alice" }: Busca o médico que tem uma consulta onde o paciente é "Alice".
+        // { $set: { "consultas.$.data": "2024-10-15T00:00:00" } }: O operador $set define um novo valor para o campo data da consulta. O símbolo $ faz referência à consulta específica onde o paciente é "Alice".
+
+
+
 //  ▪ Atualizar a especialidade do "<seunome>" para "Cardiologista" (Modelo Integrado) 
 //      (Responda na forma captura legível da tela (printscreen) do Mongo Playground).
 
+        db.collection.update(
+            { "medico" : "Dr. Pedro Hammes"},
+            { $set: { "especialidade": "Cardiologista"}}
+        )
+
 //  ▪ Atualizar a especialidade do "<seunome>" para "Cardiologista" (Modelo Normalizado) 
 //      (Responda na forma captura legível da tela (printscreen) do Mongo Playground).
+
+
+//  5. Realizar Consultas de Agregação  
+//  ▪ Contar quantas consultas cada médico realizou (Modelo Integrado) 
+//      (Responda na forma captura legível da tela (printscreen) do Mongo Playground). 
+
+        db.collection.aggregate(
+            [
+                {
+                    $project: {
+                        medico: 1, // Exibe o nome do médico
+                        consultas_quantidade: { $size: "$consultas" } // Conta o número de consultas no array
+                    }
+                }
+            ]
+        )
+
+//  ▪ Contar quantas consultas cada médico realizou (Modelo Normalizado) 
+//      (Responda na forma captura legível da tela (printscreen) do Mongo Playground). 
+
+//  ▪ Listar consultas realizadas por "Dr. Smith" (Modelo Integrado) 
+//      (Responda na forma captura legível da tela (printscreen) do Mongo Playground). 
+
+        db.collection.find(
+            { "medico": "Dr. Smith"}, // Localiza o médico pelo nome
+            { "consultas": 1, "_id": 0 } // Exibe apenas o campo consultas e oculta o _id
+        )
+
+
+//  ▪ Listar consultas realizadas por "Dr. Smith" (Modelo Normalizado) 
+//      (Responda na forma captura legível da tela (printscreen) do Mongo Playground). 

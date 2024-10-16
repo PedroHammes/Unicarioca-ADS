@@ -1,18 +1,13 @@
 [
     {
         "_id": ObjectId("670ffcd8e16f6ddc6c0cea0e"),
-        "medico": "Dr. João Silva",
+        "medico": "Dr. Smith",
         "especialidade": "Cardiologia",
         "consultas": [
             {
                 "consulta_id": ObjectId("670ffce0e16f6ddc6c0cea0f"),
                 "data": "2024-10-20T10:00:00",
-                "paciente": "Alice"
-            },
-            {
-                "consulta_id": ObjectId("670ffce5e16f6ddc6c0cea10"),
-                "data": "2024-10-21T11:00:00",
-                "paciente": "José Silva"
+                "paciente": "Ana"
             }
         ]
     },
@@ -25,11 +20,6 @@
                 "consulta_id": ObjectId("670ffcf3e16f6ddc6c0cea12"),
                 "data": "2024-10-20T10:00:00",
                 "paciente": "Alice"
-            },
-            {
-                "consulta_id": ObjectId("670ffcf8e16f6ddc6c0cea13"),
-                "data": "2024-10-21T11:00:00",
-                "paciente": "José Silva"
             }
         ]
     }
