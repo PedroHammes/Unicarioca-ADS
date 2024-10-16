@@ -1,0 +1,54 @@
+{
+    "medicos": [
+        {
+            "_id": ObjectId("150a6b1a56e2e63a606e29a1"),
+            "medico": "Dr. A",
+            "especialidade": "Psicólogo",
+            "consultas":[
+                ObjectId("c50a6b1a56e2e63a606e29a1"),
+                ObjectId("c50a6b1a56e2e63a606e29a2")
+            ]
+        },
+        {
+            "_id": ObjectId("150a6b1a56e2e63a606e29a2"),
+            "medico": "Dra. B",
+            "especialidade": "Nutricionista",
+            "consultas":[
+                ObjectId("c50a6b1a56e2e63a606e29a3"),
+                ObjectId("c50a6b1a56e2e63a606e29a4")
+            ]
+        },
+        {
+            "_id": ObjectId("150a6b1a56e2e63a606e29a3"),
+            "medico": "Dra. C",
+            "especialidade": "Ortopedista",
+            "consultas":[
+                ObjectId("c50a6b1a56e2e63a606e29a3"),
+                ObjectId("c50a6b1a56e2e63a606e29a2")
+            ]
+        }
+    ],
+
+    "consultas": [
+        {
+            "_id": ObjectId("c50a6b1a56e2e63a606e29a1"),
+            "paciente": "Ana",
+            "data": "01-04-2024"
+        },
+        {
+            "_id": ObjectId("c50a6b1a56e2e63a606e29a2"),
+            "paciente": "Joe",
+            "data": "02-04-2024"
+        },
+        {
+            "_id": ObjectId("c50a6b1a56e2e63a606e29a3"),
+            "paciente": "May",
+            "data": "01-04-2024"
+        },
+        {
+            "_id": ObjectId("c50a6b1a56e2e63a606e29a4"),
+            "paciente": "Edu",
+            "data": "02-04-2024"
+        }
+    ]
+}

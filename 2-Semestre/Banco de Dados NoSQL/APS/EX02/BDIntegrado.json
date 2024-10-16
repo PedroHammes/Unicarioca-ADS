@@ -1,0 +1,86 @@
+[
+    {
+        "_id": ObjectId("670ffcd8e16f6ddc6c0cea0e"),
+        "medico": "Dr. João Silva",
+        "especialidade": "Cardiologia",
+        "consultas": [
+            {
+                "consulta_id": ObjectId("670ffce0e16f6ddc6c0cea0f"),
+                "data": "2024-10-20T10:00:00",
+                "paciente": "Alice"
+            },
+            {
+                "consulta_id": ObjectId("670ffce5e16f6ddc6c0cea10"),
+                "data": "2024-10-21T11:00:00",
+                "paciente": "José Silva"
+            }
+        ]
+    },
+    {
+        "_id": ObjectId("670ffcebe16f6ddc6c0cea11"),
+        "medico": "Dr. Pedro Hammes",
+        "especialidade": "Neurocirurgião",
+        "consultas": [
+            {
+                "consulta_id": ObjectId("670ffcf3e16f6ddc6c0cea12"),
+                "data": "2024-10-20T10:00:00",
+                "paciente": "Alice"
+            },
+            {
+                "consulta_id": ObjectId("670ffcf8e16f6ddc6c0cea13"),
+                "data": "2024-10-21T11:00:00",
+                "paciente": "José Silva"
+            }
+        ]
+    }
+]
+  
+
+
+// [
+//     {
+//         "_id": ObjectId("650a6b1a56e2e63a606e29a1"),
+//         "medico": "Dr. A",
+//         "especialidade": "Psicólogo",
+//         "consultas": [
+//             {
+//                 "paciente": "Alice",
+//                 "data": "01-04-2024"
+//             },
+//             {
+//                 "paciente": "Joe",
+//                 "data": "02-04-2024"
+//             }
+//         ]
+//     },
+//     {
+//         "_id": ObjectId("650a6b1a56e2e63a606e29a2"),
+//         "medico": "Dra. B",
+//         "especialidade": "Nutricionista",
+//         "consultas": [
+//             {
+//                 "paciente": "May",
+//                 "data": "01-04-2024"
+//             },
+//             {
+//                 "paciente": "Edu",
+//                 "data": "02-04-2024"
+//             }
+//         ]
+//     },
+//     {
+//         "_id": ObjectId("650a6b1a56e2e63a606e29a3"),
+//         "medico": "Dra. C",
+//         "especialidade": "Ortopedista",
+//         "consultas": [
+//             {
+//                 "paciente": "Alice",
+//                 "data": "02-04-2024"
+//             },
+//             {
+//                 "paciente": "Edu",
+//                 "data": "03-04-2024"
+//             }
+//         ]
+//     }
+// ]
