@@ -1,3 +1,5 @@
+// MEMBROS DO GRUPO
+
 #include <stdio.h>
 //  A biblioteca abaixo torna possível trabalhar com strings em C
 #include <string.h>
