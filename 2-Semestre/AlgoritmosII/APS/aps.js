@@ -1,4 +1,4 @@
-//MEMBROS
+//MEMBROS DO GRUPO
 //  Joao Pedro Hammes Pacheco (2024100014)
 //  Membro 2
 //  Membro 3
